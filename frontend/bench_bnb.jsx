@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
 import { login, logout, signup } from "./actions/session_actions";
+import { fetchBenches } from "./actions/bench_actions";
 
 //testing
 window.signup = signup;
 window.logout = logout;
 window.login = login;
-//
+window.fetchBenches = fetchBenches;
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
