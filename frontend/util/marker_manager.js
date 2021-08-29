@@ -7,8 +7,6 @@ export default class MarkerManager {
     }
 
     updateMarkers(benches) {
-        console.log("time to update");
-
         Object.values(benches).forEach( bench => {
             if (!(bench.id in this.markers)) {
                 this.createMarkerFromBench(bench);
