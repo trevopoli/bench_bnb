@@ -5,6 +5,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import { Route } from "react-router";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import SearchContainer from './search/search_container';
+import BenchFormContainer from './bench_form/bench_form_container';
 
 const App = () => (
     <div>
@@ -16,6 +17,7 @@ const App = () => (
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
         <Route exact path="/" component={SearchContainer} />
+        <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
     </div>
 );
 

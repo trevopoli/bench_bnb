@@ -1,8 +1,18 @@
+import benchesReducer from "../reducers/benches_reducer";
+
 export const fetchBenches = (filters) => (
     $.ajax({
         method: "GET",
         url: "/api/benches",
         error: err => console.log(err),
         data: filters
+    })
+);
+
+export const createBench = (bench) => (
+    $.ajax({
+        method: "POST",
+        url: "/api/benches",
+        data: bench
     })
 );

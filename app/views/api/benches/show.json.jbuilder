@@ -1,3 +1,1 @@
-json.bench do
-    json.partial! 'bench', bench: @bench
-end
+json.partial! 'bench', bench: @bench
