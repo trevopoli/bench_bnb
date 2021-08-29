@@ -12,8 +12,6 @@ class BenchIndex extends React.Component {
     };
 
     render () {
-        console.log(Object.values(this.props));
-
         let benches = Object.values(this.props.benches);
 
         return (
