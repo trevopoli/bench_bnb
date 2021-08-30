@@ -7,4 +7,5 @@ class Bench < ApplicationRecord
             .where("lng < ?", bounds[:northEast][:lng])
             .where("lng > ?", bounds[:southWest][:lng])
     end
+
 end

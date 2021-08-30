@@ -34,7 +34,7 @@ class BenchMap extends React.Component {
                 }
             };
 
-            this.props.updateBounds(bounds);
+            this.props.updateFilter('bounds', bounds);
         });
 
         // click to add new bench

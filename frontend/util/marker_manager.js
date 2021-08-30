@@ -7,6 +7,12 @@ export default class MarkerManager {
     }
 
     updateMarkers(benches) {
+        Object.keys(this.markers).forEach( markerId => {
+            if(!(markerId in benches)) {
+                this.deleteMarker(markerId);
+            }
+        });
+        
         Object.values(benches).forEach( bench => {
             if (!(bench.id in this.markers)) {
                 this.createMarkerFromBench(bench);
@@ -21,5 +27,10 @@ export default class MarkerManager {
             title: bench.description
         });
         marker.setMap(this.map);
+        this.markers[bench.id] = marker;
+    }
+    
+    deleteMarker(id) {
+        this.markers[id].setMap(null);
     }
 }
