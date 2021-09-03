@@ -1,9 +1,10 @@
 
 
 export default class MarkerManager {
-    constructor(map) {
+    constructor(map, history) {
         this.map = map;
         this.markers = {};
+        this.history = history;
     }
 
     updateMarkers(benches) {
@@ -25,6 +26,9 @@ export default class MarkerManager {
         const marker = new google.maps.Marker({
             position: latlng,
             title: bench.description
+        });
+        marker.addListener("click", () => {
+            this.history.push(`/benches/${bench.id}`);
         });
         marker.setMap(this.map);
         this.markers[bench.id] = marker;

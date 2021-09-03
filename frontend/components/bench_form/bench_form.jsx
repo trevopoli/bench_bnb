@@ -46,7 +46,7 @@ class BenchForm extends React.Component {
             <div className="new-bench-from">
                 <h3 className="new-bench-form-title">Add a new bench!</h3>
                 <div className="new-bench-form-go-back-link">
-                    <Link to="/">go back to map</Link>
+                    <Link to="/">back to map</Link>
                 </div>
 
                 <form onSubmit={this.handleSubmit}>

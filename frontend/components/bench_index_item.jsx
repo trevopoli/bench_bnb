@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const BenchIndexItem = (props) => (
+const BenchIndexItem = ({ bench }) => (
     <li>
-        {props.bench.description}
+        <Link to={`/benches/${bench.id}`}>{bench.description}</Link>
     </li>
 )
 

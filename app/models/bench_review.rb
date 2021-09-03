@@ -1,0 +1,4 @@
+class BenchReview < ApplicationRecord
+
+
+end
