@@ -1,0 +1,1 @@
+json.extract! bench_review, :id, :bench_id, :user_id, :rating, :comment

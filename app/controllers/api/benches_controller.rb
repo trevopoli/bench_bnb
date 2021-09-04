@@ -1,8 +1,10 @@
 class Api::BenchesController < ApplicationController
 
     def index
-        puts params
         @benches = Bench.in_bounds(params[:bounds])
+        # join reviews and get avg reviews for page
+
+        @benches = @benches.includes(:bench_reviews)
         
         if params[:minSeating] && params[:maxSeating]
             @benches = @benches.where(seating: params[:minSeating]..params[:maxSeating])

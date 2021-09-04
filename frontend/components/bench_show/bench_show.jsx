@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import BenchMap from '../bench_map/bench_map';
+import BenchReviewFormContainer from '../bench_review/bench_review_form_container';
 
 class BenchShow extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class BenchShow extends React.Component {
                 <h3>{this.bench.description}</h3>
                 <Link to="/">back to map</Link>
                 <BenchMap benches={benchObj} single={true}/>
+                <BenchReviewFormContainer bench={this.bench} />
             </div>
         );
     };

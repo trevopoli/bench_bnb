@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :benches, only: [:index, :create]
+    resources :bench_reviews, only: [:index, :create]
   end
   
 end
