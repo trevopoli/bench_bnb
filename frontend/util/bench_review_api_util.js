@@ -10,6 +10,6 @@ export const fetchBenchReviews = (bench_id) => (
     $.ajax({
         method: "GET",
         url: "api/bench_reviews",
-        data: bench_id
+        data: {bench_id: bench_id}
     })
 )

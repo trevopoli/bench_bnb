@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import BenchMap from '../bench_map/bench_map';
 import BenchReviewFormContainer from '../bench_review/bench_review_form_container';
+import BenchReviewIndexContainer from '../bench_review/bench_review_index_container';
 
 class BenchShow extends React.Component {
     constructor(props) {
@@ -10,6 +11,10 @@ class BenchShow extends React.Component {
         this.bench = this.props.bench;
 
     };
+
+    componentDidMount() {
+        this.props.fetchBenchReviews(this.bench.id);
+    }
 
     render() {
         const benchObj = {[this.bench.id]: this.bench};
@@ -20,6 +25,7 @@ class BenchShow extends React.Component {
                 <Link to="/">back to map</Link>
                 <BenchMap benches={benchObj} single={true}/>
                 <BenchReviewFormContainer bench={this.bench} />
+                <BenchReviewIndexContainer avgRating={this.bench.avgRating}/>
             </div>
         );
     };

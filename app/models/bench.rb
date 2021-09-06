@@ -10,4 +10,7 @@ class Bench < ApplicationRecord
             .where("lng > ?", bounds[:southWest][:lng])
     end
 
+    def avg_rating
+        self.bench_reviews.average(:rating).to_f || 0
+    end
 end

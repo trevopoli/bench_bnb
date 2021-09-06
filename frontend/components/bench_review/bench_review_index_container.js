@@ -2,8 +2,9 @@ import { connect } from "react-redux";
 import BenchReviewIndex from "./bench_review_index";
 import { fetchBenches } from "../../actions/bench_actions";
 
-const mapStateToProps = ({ entities: benchReviews }) => ({
-    benchReviews: benchReviews
+const mapStateToProps = ({ entities: {benchReviews} }, { avgRating }) => ({
+    benchReviews: benchReviews,
+    avgRating: avgRating
 })
 
 const mapDispatchToProps = dispatch => ({
