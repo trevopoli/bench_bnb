@@ -24,6 +24,7 @@ class BenchShow extends React.Component {
                 <h3>{this.bench.description}</h3>
                 <Link to="/">back to map</Link>
                 <BenchMap benches={benchObj} single={true}/>
+                <img className="bench-show-img" src={this.bench.photoUrl}></img>
                 <BenchReviewFormContainer bench={this.bench} />
                 <BenchReviewIndexContainer avgRating={this.bench.avgRating}/>
             </div>
