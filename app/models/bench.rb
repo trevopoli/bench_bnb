@@ -1,6 +1,8 @@
 
 class Bench < ApplicationRecord
     validates :description, :lat, :lng, presence: true
+    
+    validate :ensure_photo
 
     has_many :bench_reviews
 
@@ -11,6 +13,12 @@ class Bench < ApplicationRecord
             .where("lat > ?", bounds[:southWest][:lat])
             .where("lng < ?", bounds[:northEast][:lng])
             .where("lng > ?", bounds[:southWest][:lng])
+    end
+
+    def ensure_photo
+        unless self.photo.attached?
+            errors[:photo] << "must be attached"
+        end
     end
 
     def avg_rating

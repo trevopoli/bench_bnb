@@ -6,11 +6,14 @@ class BenchForm extends React.Component {
         super(props);
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
         this.update = this.update.bind(this);
 
         this.state = {
             description: "",
-            seating: 1
+            seating: 1,
+            photoFile: null,
+            photoUrl: null
         };
     };
 
@@ -23,24 +26,44 @@ class BenchForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const benchData = {
-            bench: {
-                description: this.state.description,
-                seating: this.state.seating,
-                lat: this.props.lat,
-                lng: this.props.lng
-            }
-        };
+        const benchFormData = new FormData();
+        benchFormData.append('bench[description]', this.state.description);
+        benchFormData.append('bench[seating]', this.state.seating);
+        benchFormData.append('bench[lat]', this.props.lat);
+        benchFormData.append('bench[lng]', this.props.lng);
+        if (this.state.photoFile) {
+            benchFormData.append('bench[photo]', this.state.photoFile);
+        }
         
-        this.props.createBench(benchData).then(
-            this.props.history.push("/")
+        this.props.createBench(benchFormData).then(
+            () => this.props.history.push("/")
         );
+    }
+
+    handleFile(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({photoFile: file, photoUrl: fileReader.result})
+        }
+
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     render () {
 
         const { description , seating } = this.state;
         const { lat, lng } = this.props;
+        const photoPreview = this.state.photoUrl ? <img className="bench-photo-preview" src={this.state.photoUrl} /> : null;
+        let errorList = null;
+        
+        if (this.props.errors){
+            errorList = <ul className="bench-form-errors">
+                {this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}
+            </ul>
+        }
 
         return (
             <div className="new-bench-from">
@@ -48,6 +71,7 @@ class BenchForm extends React.Component {
                 <div className="new-bench-form-go-back-link">
                     <Link to="/">back to map</Link>
                 </div>
+                {errorList}
 
                 <form onSubmit={this.handleSubmit}>
                     <label className="new-bench-description">Description </label>
@@ -66,6 +90,14 @@ class BenchForm extends React.Component {
                         onChange={this.update('seating')}
                         className="new-bench-seating"
                     />
+
+                    <label className="new-bench-photo">Add Photo: </label>
+                    <input
+                        type="file"
+                        onChange={this.handleFile}
+                    />
+                    <h5>Photo Preview</h5>
+                    {photoPreview}
 
                     <label className="new-bench-lat">Latitude </label>
                     <input
