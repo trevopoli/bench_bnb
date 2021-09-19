@@ -12,8 +12,16 @@ const Greeting = ({ currentUser, logout }) => {
 
     const linkHeader = () => (
             <div className="header-greeting">
-                <Link to='/signup'>Sign Up</Link>
-                <Link to='/login'>Log In</Link>
+                <Link to='/signup'>
+                    <div className="header-sign-up-link">
+                        Sign Up
+                    </div>
+                </Link>
+                <Link to='/login'>
+                    <div className="header-log-in-link">
+                        Log In
+                    </div>
+                </Link>
             </div>
     );
 

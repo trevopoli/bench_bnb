@@ -1,0 +1,58 @@
+
+.new-bench-form-title {
+    margin: 10px 10px 10px 0;
+    font-size: 22px;
+    font-weight: 500;
+}
+.new-bench-form-back-link {
+    display: inline-block;
+    padding: 3px;
+    margin: 3px 3px 3px 0;
+    background-color: #b0d5ff;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+.new-bench-form-back-link:hover {
+    background-color: #daebff;
+}
+
+.new-bench-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 5px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: rgb(233, 245, 255);
+
+    label {
+        flex-basis: 100%;
+        margin-top: 5px;
+    }
+
+    .new-bench-photo-preview-header {
+        flex-basis: 100%;
+    }
+
+    .new-bench-submit {
+        font-size: 16px;
+        margin-top: 10px;
+        padding: 5px 10px 5px 10px;
+        background-color: rgb(54, 143, 255);
+        border: none;
+        border-radius: 3px;
+    }
+
+    
+
+    .new-bench-submit:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+}
+
+.flex-break {
+    flex-basis: 100%;
+}
+

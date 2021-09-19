@@ -51,7 +51,7 @@ class BenchReviewForm extends React.Component {
     render () {
 
         return(
-            <div className="new-bench-review-form">
+            <div className="bench-review-form">
                 <form className="new-bench-review-form" onSubmit={this.handleSubmit}>
                     <label htmlFor="review-rating-input">Rating: </label>
                     <input type="number" max="5" min="1" className="review-rating-input" value={this.state.rating} onChange={this.handleChange("rating")}></input>

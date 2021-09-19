@@ -1,0 +1,47 @@
+.session-form-container {
+    margin-top: 20px;
+
+    h3 {
+        font-size: 26px;
+        margin: 10px 10px 10px 0;
+    }
+
+    .session-form {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #daebff;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 20px;
+
+        label {
+            flex-basis: 100%;
+        }
+    }
+
+    .session-form-submit {
+        font-size: 16px;
+        margin-top: 10px;
+        padding: 5px 10px 5px 10px;
+        background-color: rgb(57, 143, 255);
+        border: none;
+        border-radius: 3px;
+    }
+
+    .session-form-submit:hover {
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+.session-nav-link {
+    display: inline-block;
+    padding: 3px;
+    background-color: #b0d5ff;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+.session-nav-link:hover {
+    background-color: #daebff;
+}

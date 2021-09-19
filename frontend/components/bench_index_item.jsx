@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BenchIndexItem = ({ bench }) => (
-    <li>
-        <Link to={`/benches/${bench.id}`}>{bench.description}</Link>
-        <div className="avg-rating-list">Rating: {bench.avgRating}</div>
-    </li>
+    
+        <Link to={`/benches/${bench.id}`}>
+            <li>
+                <div className="list-bench-description">{bench.description}</div>
+                <div className="list-avg-rating">Rating: {bench.avgRating}</div>
+            </li>
+        </Link>
 )
 
 export default BenchIndexItem;

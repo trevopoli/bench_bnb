@@ -9,6 +9,9 @@ const Search = ({benches, fetchBenches, updateFilter, minSeating, maxSeating}) =
         <div className="columns">
             <div className="left-column">
                 <BenchMap benches={benches} updateFilter={updateFilter} />
+                <div className="map-cta">
+                    <h3>Click on map to add a new bench!</h3>
+                </div>
             </div>
             <div className="right-column">
                 <div className="filter-form">

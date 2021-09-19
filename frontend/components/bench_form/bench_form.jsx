@@ -66,61 +66,66 @@ class BenchForm extends React.Component {
         }
 
         return (
-            <div className="new-bench-from">
-                <h3 className="new-bench-form-title">Add a new bench!</h3>
-                <div className="new-bench-form-go-back-link">
-                    <Link to="/">back to map</Link>
+            <div className="columns">
+            <div className="left-column">
+                <div className="new-bench-from-container">
+                    <h3 className="new-bench-form-title">Add a new bench!</h3>
+                    <Link to="/">
+                        <div className="new-bench-form-back-link">back to map</div>
+                    </Link>
+                    {errorList}
+
+                    <form className="new-bench-form" onSubmit={this.handleSubmit}>
+                        <label className="new-bench-description">Description </label>
+                        <input
+                            type="text"
+                            value={description}
+                            onChange={this.update('description')}
+                            className="new-bench-description"
+                        />
+
+                        <label className="new-bench-seating">Seating </label>
+                        <input
+                            type="number"
+                            min="0"
+                            value={seating}
+                            onChange={this.update('seating')}
+                            className="new-bench-seating"
+                        />
+
+                        <label className="new-bench-photo">Add Photo: </label>
+                        <input
+                            type="file"
+                            onChange={this.handleFile}
+                        />
+                        <h5 className="new-bench-photo-preview-header">Photo Preview</h5>
+                        {photoPreview}
+
+                        <label className="new-bench-lat">Latitude </label>
+                        <input
+                            type="text"
+                            disabled
+                            value={lat}
+                            className="new-bench-lat"
+                        />
+
+                        <label className="new-bench-lng">Longitude </label>
+                        <input
+                            type="text"
+                            disabled
+                            value={lng}
+                            className="new-bench-lng"
+                        />
+
+                        <div className="flex-break"></div>
+                        <input
+                            type="submit"
+                            value="Add Bench"
+                            className="new-bench-submit"
+                        />
+                    </form>
                 </div>
-                {errorList}
-
-                <form onSubmit={this.handleSubmit}>
-                    <label className="new-bench-description">Description </label>
-                    <input
-                        type="text"
-                        value={description}
-                        onChange={this.update('description')}
-                        className="new-bench-description"
-                    />
-
-                    <label className="new-bench-seating">Seating </label>
-                    <input
-                        type="number"
-                        min="0"
-                        value={seating}
-                        onChange={this.update('seating')}
-                        className="new-bench-seating"
-                    />
-
-                    <label className="new-bench-photo">Add Photo: </label>
-                    <input
-                        type="file"
-                        onChange={this.handleFile}
-                    />
-                    <h5>Photo Preview</h5>
-                    {photoPreview}
-
-                    <label className="new-bench-lat">Latitude </label>
-                    <input
-                        type="text"
-                        disabled
-                        value={lat}
-                        className="new-bench-lat"
-                    />
-
-                    <label className="new-bench-lng">Longitude </label>
-                    <input
-                        type="text"
-                        disabled
-                        value={lng}
-                        className="new-bench-lng"
-                    />
-
-                    <input
-                        type="submit"
-                        value="Add Bench"
-                        className="new-bench-submit"
-                    />
-                </form>
+            </div>
             </div>
         );
     };

@@ -27,12 +27,12 @@ class BenchShow extends React.Component {
             const benchObj = { [this.bench.id]: this.bench }
 
             rendering = (
-                <div className = "columns" >
+                <div className="columns">
                     <div className="left-column">
                         <h3 className="bench-show-title">{this.bench.description}</h3>
-                        <div className="bench-show-back-link">
-                            <Link to="/">back to map</Link>
-                        </div>
+                        <Link to="/">
+                            <div className="bench-show-back-link">back to map</div>
+                        </Link>
                         <div className="bench-show-img-container">
                             <img className="bench-show-img" src={this.bench.photoUrl}></img>
                         </div>

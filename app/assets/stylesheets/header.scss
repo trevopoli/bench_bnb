@@ -8,7 +8,7 @@
     h1 {
         font-size: 40px;
         font-weight: 800;
-        margin: 10px;
+        margin: 10px 0 10px 20px;
     }
 }
 
@@ -20,4 +20,12 @@
     button {
         margin: 10px;
     }
+}
+
+.header-log-in-link, .header-sign-up-link {
+    margin: 0 20px 0 0;
+}
+
+.header-log-in-link:hover, .header-sign-up-link:hover {
+    color: white;
 }

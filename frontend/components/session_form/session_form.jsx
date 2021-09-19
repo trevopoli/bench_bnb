@@ -49,25 +49,31 @@ class SessionForm extends React.Component {
         };
 
         return (
-            <div className="session-form-container">
-                <h3>{formTypeText}</h3>
-                {navLink}
-                {errorList}
-                <form onSubmit={this.handleSubmit}>
-                    <label>Username: 
-                        <input type="text" 
-                            onChange={this.handleChange('username')}
-                            value={this.state.username}>
-                        </input>
-                    </label>
-                    <label>Password: 
-                        <input type="password" 
-                            onChange={this.handleChange('password')} 
-                            value={this.state.password}>
-                        </input>
-                    </label>
-                    <input type="submit" className="session-form-submit" value={formTypeText} />
-                </form>
+            <div className="columns">
+            <div className="left-column">
+                <div className="session-form-container">
+                    <h3>{formTypeText}</h3>
+                    <div className="session-nav-link">
+                        {navLink}
+                    </div>
+                    {errorList}
+                    <form className="session-form" onSubmit={this.handleSubmit}>
+                        <label>Username: </label>
+                            <input type="text"
+                                onChange={this.handleChange('username')}
+                                value={this.state.username}>
+                            </input>
+                        
+                            <label>Password: </label>
+                            <input type="password"
+                                onChange={this.handleChange('password')}
+                                value={this.state.password}>
+                            </input>
+                            <div className="flex-break"></div>
+                            <input type="submit" className="session-form-submit" value={formTypeText} />
+                    </form>
+                </div>
+            </div>
             </div>
         );
     };
