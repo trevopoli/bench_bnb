@@ -20,6 +20,16 @@ class Api::BenchesController < ApplicationController
         end
     end
 
+    def show
+        @bench = Bench.find_by(id: params[:id])
+
+         if @bench
+            render :show
+        else
+            render json: @bench.errors.full_messages, status: 404
+        end
+    end
+
     private
 
     def bench_params

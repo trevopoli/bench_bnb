@@ -19,13 +19,19 @@ export const receiveBenchErrors = errors => ({
     errors
 });
 
-export const fetchBenches = (filters) => dispatch => (
+export const fetchBenches = filters => dispatch => (
     BenchAPIUtil.fetchBenches(filters).then(
         benches => dispatch(receiveBenches(benches))
     )
 );
 
-export const createBench = (bench) => dispatch => (
+export const fetchBench = benchId => dispatch => (
+    BenchAPIUtil.fetchBench(benchId).then(
+        bench => dispatch(receiveBench(bench))
+    )
+);
+
+export const createBench = bench => dispatch => (
     BenchAPIUtil.createBench(bench).then(
         bench => dispatch(receiveBench(bench)),
         errors => dispatch(receiveBenchErrors(errors.responseJSON))

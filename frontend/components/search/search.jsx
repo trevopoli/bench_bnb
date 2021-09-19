@@ -6,10 +6,18 @@ import FilterForm from './filter_form';
 const Search = ({benches, fetchBenches, updateFilter, minSeating, maxSeating}) => {
     
     return (
-        <div>
-            <BenchMap benches={benches} updateFilter={updateFilter} />
-            <FilterForm updateFilter={updateFilter} minSeating={minSeating} maxSeating={maxSeating} />
-            <BenchIndex benches={benches} fetchBenches={fetchBenches} />
+        <div className="columns">
+            <div className="left-column">
+                <BenchMap benches={benches} updateFilter={updateFilter} />
+            </div>
+            <div className="right-column">
+                <div className="filter-form">
+                    <FilterForm updateFilter={updateFilter} minSeating={minSeating} maxSeating={maxSeating} />
+                </div>
+                <div className="bench-map-list">
+                    <BenchIndex benches={benches} fetchBenches={fetchBenches} />
+                </div>
+            </div>
         </div>
     );
 }

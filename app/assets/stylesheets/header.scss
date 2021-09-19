@@ -1,0 +1,23 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(176, 213, 255);
+    border-bottom: 1px solid black;
+
+    h1 {
+        font-size: 40px;
+        font-weight: 800;
+        margin: 10px;
+    }
+}
+
+.header-greeting {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    button {
+        margin: 10px;
+    }
+}

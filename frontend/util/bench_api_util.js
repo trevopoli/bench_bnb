@@ -9,6 +9,13 @@ export const fetchBenches = (filters) => (
     })
 );
 
+export const fetchBench = (benchId) => (
+    $.ajax({
+        method: "GET",
+        url: `/api/benches/${benchId}`
+    })
+);
+
 export const createBench = (bench) => (
     $.ajax({
         method: "POST",

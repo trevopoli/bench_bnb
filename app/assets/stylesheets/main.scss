@@ -1,0 +1,39 @@
+
+#map-container {
+    width: 100%;
+    height: 500px;
+    margin: 10px 0 10px 0;
+}
+
+.filter-form {
+    margin: 10px;
+}
+
+.seating-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .min-seating-filter, .max-seating-filter {
+        margin-top: 5px;
+        display: flex;
+        flex-basis: 100%;
+        justify-content: left;
+        align-items: center;
+    }
+}
+
+.seating-filter-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.bench-map-list {
+    
+    li {
+        margin: 5px 0 5px 0;
+    }
+}
+

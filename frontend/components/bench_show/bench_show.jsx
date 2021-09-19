@@ -8,25 +8,51 @@ class BenchShow extends React.Component {
     constructor(props) {
         super(props);
 
-        this.bench = this.props.bench;
+        this.benchId = this.props.benchId;
 
     };
 
     componentDidMount() {
-        this.props.fetchBenchReviews(this.bench.id);
+        this.props.fetchBench(this.benchId);
+        this.props.fetchBenchReviews(this.benchId);
     }
 
     render() {
-        const benchObj = {[this.bench.id]: this.bench};
+        console.log(this.props.bench);
+
+        let rendering;
+
+        if (typeof this.props.bench !== 'undefined') {
+            this.bench = this.props.bench;
+            const benchObj = { [this.bench.id]: this.bench }
+
+            rendering = (
+                <div className = "columns" >
+                    <div className="left-column">
+                        <h3 className="bench-show-title">{this.bench.description}</h3>
+                        <div className="bench-show-back-link">
+                            <Link to="/">back to map</Link>
+                        </div>
+                        <div className="bench-show-img-container">
+                            <img className="bench-show-img" src={this.bench.photoUrl}></img>
+                        </div>
+                        <div className="bench-show-map">
+                            <BenchMap benches={benchObj} single={true} />
+                        </div>
+                    </div>  
+                    <div className="right-column">
+                        <BenchReviewFormContainer bench={this.bench} />
+                        <BenchReviewIndexContainer avgRating={this.bench.avgRating} />
+                    </div>
+                </div>
+            )
+        } else {
+            rendering = (<div className="null-holder"></div>)
+        }
 
         return (
-            <div className="bench-show">
-                <h3>{this.bench.description}</h3>
-                <Link to="/">back to map</Link>
-                <BenchMap benches={benchObj} single={true}/>
-                <img className="bench-show-img" src={this.bench.photoUrl}></img>
-                <BenchReviewFormContainer bench={this.bench} />
-                <BenchReviewIndexContainer avgRating={this.bench.avgRating}/>
+            <div>
+                {rendering}
             </div>
         );
     };

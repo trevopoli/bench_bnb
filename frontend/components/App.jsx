@@ -11,7 +11,7 @@ import { Switch } from "react-router-dom";
 
 const App = () => (
     <div>
-        <header>
+        <header className="header-wrapper">
             <h1>Bench BnB</h1>
             <GreetingContainer />
         </header>
