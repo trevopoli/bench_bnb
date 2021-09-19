@@ -39,7 +39,15 @@ class BenchMap extends React.Component {
     }
 
     componentDidUpdate() {
-        this.MarkerManager.updateMarkers(this.props.benches);
+        this.MarkerManager.updateMarkers(this.props.benches)
+        
+        if (typeof this.props.highlightBenchId !== "undefined") {
+            this.MarkerManager.highlightMarker(this.props.highlightBenchId);
+        }
+        
+        if (typeof this.props.unhighlightBenchId !== "undefined") {
+            this.MarkerManager.unhighlightMarker(this.props.unhighlightBenchId);
+        }
     }
 
     addListeners() {

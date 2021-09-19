@@ -7,7 +7,7 @@ export default class MarkerManager {
         this.history = history;
     }
 
-    updateMarkers(benches) {
+    updateMarkers(benches, highlightBenchId) {
         Object.keys(this.markers).forEach( markerId => {
             if(!(markerId in benches)) {
                 this.deleteMarker(markerId);
@@ -15,17 +15,27 @@ export default class MarkerManager {
         });
         
         Object.values(benches).forEach( bench => {
+            let highlight = (bench.id === highlightBenchId) ? true : false;
             if (!(bench.id in this.markers)) {
                 this.createMarkerFromBench(bench);
             }
         });
     }
 
-    createMarkerFromBench(bench) {
+    highlightMarker(highlightBenchId) {
+        this.markers[highlightBenchId].setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png")
+    }
+
+    unhighlightMarker(unhighlightBenchId) {
+        this.markers[unhighlightBenchId].setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png")
+    }
+
+    createMarkerFromBench(bench) {        
         const latlng = new google.maps.LatLng(bench.lat, bench.lng);
         const marker = new google.maps.Marker({
             position: latlng,
-            title: bench.description
+            title: bench.description,
+            icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
         });
         marker.addListener("click", () => {
             this.history.push(`/benches/${bench.id}`);

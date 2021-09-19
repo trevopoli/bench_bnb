@@ -16,7 +16,13 @@ class BenchIndex extends React.Component {
 
         return (
             <ul className="bench-list">
-                {benches.map( (bench, idx) => <BenchIndexItem key={idx} bench={bench} />)}
+                {benches.map( (bench, idx) => (<BenchIndexItem 
+                    key={idx} 
+                    bench={bench}
+                    noMapHighlight={this.props.noMapHighlight}
+                    newMapHighlight={this.props.newMapHighlight} />
+                    )
+                )}
             </ul>
         )
     };
